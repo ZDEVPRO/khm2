@@ -1,0 +1,53 @@
+{% load static %}
+
+<header>
+
+    <div class="site-navigation main_menu " id="mainmenu-area">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="{% url 'index' %}">
+                    {% for logo in logo_index %}
+                    <h2>{{ logo.title }}</h2>
+                    {% endfor %}
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu"
+                        aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="fa fa-bars"></span>
+                </button>
+
+                <!-- Collapse -->
+                <div class="collapse navbar-collapse" id="navbarMenu">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item ">
+                            <a href="{% url 'index' %}" class="nav-link js-scroll-trigger">
+                                Asosiy
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="{% url 'news' %}" class="nav-link js-scroll-trigger">
+                                Yangiliklar
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="{% url 'contactus' %}" class="nav-link">
+                                Biz bilan bog'lanish
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            {% for contact in contact_slider %}
+                            <a href="tel://{{ contact.phone }}" class="nav-link">
+                                {{ contact.phone }}
+                            </a>
+                        </li>
+                    </ul>
+
+                    <ul class="header-contact-right d-none d-lg-block">
+                        <li><a href="tel://{{ contact.phone }}" class="header-search search_toggle"> <i class="fa fa fa-phone"></i></a></li>
+                    </ul>
+                    {% endfor %}
+
+                </div> <!-- / .navbar-collapse -->
+            </div> <!-- / .container -->
+        </nav>
+    </div>
+</header>

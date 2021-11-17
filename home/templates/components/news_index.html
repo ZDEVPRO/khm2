@@ -1,0 +1,37 @@
+{#{% load static %}#}
+{##}
+{#<section class="blog section-padding">#}
+{#    <div class="container">#}
+{#        <div class="row justify-content-center">#}
+{#            <div class="col-lg-6">#}
+{#                <div class="section-heading center-heading">#}
+{#                    <span class="subheading">Yangiliklar</span>#}
+{#                    <h3>Koledj Haqida Yangiliklar</h3>#}
+{#                    <p>Koledjimiz haqidagi yangiliklar bilan tanishib chiqing.</p>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{##}
+{##}
+{#        <div class="row">#}
+{#            {% for newsindex in newsindex_latest %}#}
+{#            <div class="col-lg-4 col-md-6">#}
+{#                <div class="blog-item">#}
+{#                    <img src="{{ newsindex.image.url }}" alt="" class="img-fluid">#}
+{#                    <div class="blog-content">#}
+{#                        <div class="entry-meta">#}
+{#                            <span><i class="fa fa-calendar-alt"></i>{{ newsindex.create_on_date }}</span>#}
+{#                            <span><i class="fa fa-clock"></i>{{ newsindex.create_on_time }}</span>#}
+{#                        </div>#}
+{##}
+{#                        <h2><a href="{% url 'post_detail' newsindex.slug %}">{{ newsindex.title }}</a></h2>#}
+{#                        <p>{{ newsindex.description }}</p>#}
+{#                        <p>{{ newsindex.past_description }}</p>#}
+{#                        <a href="{% url 'post_detail' newsindex.slug %}" class="btn btn-main btn-small"><i class="fa fa-plus-circle mr-2"></i>O'qish</a>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#            {% endfor %}#}
+{#        </div>#}
+{#    </div>#}
+{#</section>#}

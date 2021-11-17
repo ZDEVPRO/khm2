@@ -1,0 +1,85 @@
+{% load static %}
+
+<section style="background-image: url({% static 'assets/images/bg/page-header.jpg' %})" class="banner banner-2">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-12 col-lg-8">
+                <div class="banner-content center-heading">
+                    <span class="subheading">Saytimizga Xush Kelibsiz!</span>
+                    {% for hometitle in home_title %}
+                    <h1>{{ hometitle.title }}</h1>
+                    {% endfor %}
+                    <a href="/news/" class="btn btn-main"><i class="fa fa-list-ul mr-2"></i>Yangiliklar </a>
+                    <a href="/contact/" class="btn btn-tp ">Biz bilan aloqa <i class="fa fa-angle-right ml-2"></i></a>
+                </div>
+            </div>
+        </div> <!-- / .row -->
+    </div> <!-- / .container -->
+</section>
+
+
+<section class="about-section section-padding about-2">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 col-md-12">
+                <div class="about-img2">
+                    <img src="{% static 'assets/images/banner/banner-8.png' %}" alt="" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <div class="section-heading">
+                    <span class="subheading">Rishton tuman 1-sonli Kasb Hunar maktabi</span>
+                    {% for aboutindex in about_index_slider %}
+                    <h3>{{ aboutindex.title }}</h3>
+                </div>
+
+                <p>{{ aboutindex.description }}</p>
+                {% endfor %}
+
+                <a href="{% url 'index' %}" class="btn btn-main"><i class="fa fa-check mr-2"></i>Bizda o'qing</a>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding bg-grey team-2">
+    <div class="container">
+        <div class="row align-items-center justify-content-center">
+            <div class="col-lg-6">
+                <div class="section-heading center-heading">
+                    <span class="subheading">Eng yaxshi mutaxassis va murabbiylar</span>
+                    <h3>Bizning o'qituvchilarimiz</h3>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            {% for teacher in teacher_latest %}
+                <div class="col-lg-4 col-sm-6">
+
+                    <div class="team-block">
+                        <div class="team-img">
+                            <img src="{{ teacher.image.url }}" alt="" class="img-fluid">
+                        </div>
+                        <div class="team-info">
+                            <h4>{{ teacher.name }}</h4>
+                            <p>{{ teacher.category }}</p>
+                        </div>
+                        <ul class="team-socials list-inline">
+                            <li class="list-inline-item"><a href="tel://{{ teacher.phone }}"><i class="fa fa-phone"></i></a></li>
+                            <li class="list-inline-item"><a href="tel://{{ teacher.whatsapp }}"><i class="fab fa-whatsapp"></i></a></li>
+                            <li class="list-inline-item"><a href="tel://{{ teacher.telegram }}"><i class="fab fa-telegram"></i></a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% block news_index %}{% include 'components/news_index.html' %}{% endblock %}
+
+{% block total %}{% include 'components/total.html' %}{% endblock %}

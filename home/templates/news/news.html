@@ -1,0 +1,59 @@
+{% load static %}
+
+<section class="page-header">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="page-header-content">
+                    <h1>Yangiliklar</h1>
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item">
+                            <a href="#">Asosiy</a>
+                        </li>
+                        <li class="list-inline-item">/</li>
+                        <li class="list-inline-item">
+                            Yangiliklar
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="blog section-padding">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="section-heading center-heading">
+                    <h3>Koledj Haqida Yangiliklar</h3>
+                    <p>Koledjimiz haqidagi yangiliklar bilan tanishib chiqing.</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            {% for news in news_latest %}
+                <div class="col-lg-4 col-md-6">
+                    <div class="blog-item">
+                        <a href="{% url 'news_detail' news.id news.slug %}"><img src="{{ news.image.url }}" alt="" class="img-fluid"></a>
+                        <div class="blog-content">
+                            <div class="entry-meta">
+                                <span><i class="fa fa-calendar-alt"></i>{{ news.create_on_date }}</span>
+                                <span><i class="fa fa-clock"></i>{{ news.create_on_time }}</span>
+                            </div>
+
+                            <h2><a href="{% url 'news_detail' news.id news.slug %}">{{ news.title }}</a></h2>
+                            <p>{{ news.description }}</p>
+                            <p>{{ news.past_description }}</p>
+                            <a href="{% url 'news_detail' news.id news.slug %}" class="btn btn-main btn-small"><i
+                                    class="fa fa-plus-circle mr-2"></i>O'qish</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

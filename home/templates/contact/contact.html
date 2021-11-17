@@ -1,0 +1,110 @@
+{% load static %}
+
+<section class="page-header">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="page-header-content">
+                    <h1>Biz bilan bog'lanish</h1>
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item">
+                            <a href="#">Asosiy</a>
+                        </li>
+                        <li class="list-inline-item">/</li>
+                        <li class="list-inline-item">
+                            Biz bilan bog'lanish
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="contact-info section-padding">
+    <div class="container">
+        <div class="row align-items-center justify-content-center">
+            <div class="col-lg-6">
+                <div class="section-heading center-heading">
+                    <span class="subheading">BIZ BILAN BOG'LANISH</span>
+                    <h3>Savolingiz bormi?</h3>
+                    <p>Agar savollaringiz bo'lsa pastdagi bo'limlarni to'ldiring va yuborish tugmasini bosing.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-4">
+                <div class="row">
+                    {% for contact_about in contact_about %}
+                        <div class="col-lg-12 col-md-6">
+                            <div class="contact-item">
+                                <p>Elektron pochta</p>
+                                <h4>{{ contact_about.email }}</h4>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-6">
+                            <div class="contact-item">
+                                <p>Qo'ng'iroq qiling</p>
+                                <h4>{{ contact_about.phone }}</h4>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-6">
+                            <div class="contact-item">
+                                <p>Manzil</p>
+                                <h4>{{ contact_about.address }}</h4>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="col-lg-8">
+                <form class="contact__form form-row " method="post" action="{% url 'contactus' %}"
+                      id="ContactForm">
+                    {% csrf_token %}
+                    {#                    <div class="row">#}
+                    {#                        <div class="col-12">#}
+                    {#                        </div>#}
+                    {#                    </div>#}
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <input type="text" id="name" name="name" class="form-control"
+                                       placeholder="Ismingiz">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <input type="text" name="phone" id="phone" class="form-control"
+                                       placeholder="Telefon raqamingiz">
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <input type="text" name="subject" id="subject" class="form-control"
+                                       placeholder="Mavzu">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <textarea id="message" name="message" cols="30" rows="6" class="form-control"
+                                          placeholder="Xabaringiz"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12">
+                        <div class="mt-4 text-right">
+                            <button class="btn btn-main" type="submit" value="submit">Xabarni yuborish <i
+                                    class="fa fa-angle-right ml-2"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

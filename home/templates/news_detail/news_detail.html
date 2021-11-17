@@ -1,0 +1,27 @@
+{% load static %}
+
+
+<div style="margin-top: -85px" class="page-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="post-single">
+                    <div class="post-thumb">
+                        <img src="{{ news.image.url }}" alt="" class="img-fluid">
+                    </div>
+
+                    <div class="single-post-content">
+                        <div class="post-meta mt-4">
+                            <span class="post-date"><i class="fa fa-calendar-alt"></i>{{ news.create_on_date }}</span>
+                            <span class="post-comment"><i class="fa fa-clock"></i>{{ news.create_on_time }}</span>
+                        </div>
+
+                        <h3>{{ news.title }}</h3>
+                        <h5>{{ news.description }}</h5>
+                        <p>{{ news.obshi_description }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
